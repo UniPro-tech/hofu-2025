@@ -8,11 +8,11 @@ export default function Header() {
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
-                <Toolbar className="justify-content-between">
+                <Toolbar>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         2025年の抱負！！
                     </Typography>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                    <Typography variant="h6" component="div" sx={{ flexGrow: 0 }}>
                         <Link href="/login">
                             ログイン
                         </Link>
