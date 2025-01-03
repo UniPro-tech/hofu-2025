@@ -4,6 +4,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
+import { prisma } from '@/prisma';
 
 export default function BasicCard({ goal, author, description, textList }: Readonly<{ goal: string, author: string, description: string, textList: string[] }>) {
     return (
@@ -30,5 +31,9 @@ export default function BasicCard({ goal, author, description, textList }: Reado
 }
 
 const onClickDelete = () => {
-    console.log('delete');
+    prisma.ambition.delete({
+        where: {
+            id: 1 //TODO:idを指定
+        }
+    });
 }

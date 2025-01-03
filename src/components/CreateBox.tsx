@@ -2,6 +2,8 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
+import { auth } from '@/auth';
+import { prisma } from '@/prisma';
 
 export default function FormPropsTextFields() {
     return (
@@ -29,6 +31,14 @@ export default function FormPropsTextFields() {
     );
 }
 
-const onClickCreate = () => {
-    alert('作成しました');
+const onClickCreate = async () => {
+    const session = await auth();
+    //TODO: フォームの値を取得
+    prisma.ambition.create({
+        data: {
+            userEmail: session?.user?.email,
+            title: '抱負・目標',
+            description: '短い説明'
+        }
+    });
 }
