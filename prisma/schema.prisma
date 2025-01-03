@@ -82,6 +82,7 @@ model Authenticator {
 model Ambition {
   id          Int      @id @default(autoincrement())
   userEmail   String
+  userName    String
   title       String
   description String
 }

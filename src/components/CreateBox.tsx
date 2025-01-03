@@ -37,6 +37,7 @@ const onClickCreate = async () => {
     prisma.ambition.create({
         data: {
             userEmail: session?.user?.email,
+            userName: session?.user?.name,
             title: '抱負・目標',
             description: '短い説明'
         }

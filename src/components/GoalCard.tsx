@@ -5,6 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
 import { prisma } from '@/prisma';
+import { auth } from '@/auth';
 
 export default function BasicCard({ goal, author, description, textList }: Readonly<{ goal: string, author: string, description: string, textList: string[] }>) {
     return (
@@ -30,7 +31,17 @@ export default function BasicCard({ goal, author, description, textList }: Reado
     );
 }
 
-const onClickDelete = () => {
+const onClickDelete = async () => {
+    const session = await auth();
+    const userEmail = session?.user?.email;
+    const data = prisma.ambition.findMany({
+        where: {
+            id: 1
+        }
+    });
+    if (userEmail !== data[0].userEmail) {
+        return;
+    }
     prisma.ambition.delete({
         where: {
             id: 1 //TODO:idを指定
