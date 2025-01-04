@@ -133,19 +133,19 @@ export default function Home() {
   }
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center font-yujiboku justify-items-center min-h-screen p-8 pb-20 mt-[100px] gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <div className="flex flex-col space-y-4 py-[200px]">
-        <h1 className="text-6xl font-bold text-center">
+    <div className="flex flex-col items-center font-yujiboku">
+      <div className="flex flex-col space-y-4 p-[100px]">
+        <h1 className="text-5xl lg:text-6xl font-bold text-center">
           新年あけましておめでとうございます！！
         </h1>
         <p className="text-center text-4xl text-gray-600">
           今年の抱負をみんなで共有しましょう！
         </p>
-        <Link href="https://forms.gle/qgEPcpScEckdFNvU7" className="text-xl h-[100px] text-center text-blue-500">
+        <Link href="https://forms.gle/qgEPcpScEckdFNvU7" className="text-xl text-center text-blue-500">
           Googleフォーム
         </Link>
       </div>
-      <main className="pt-[100px] grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <main className="pt-[100px] grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 p-10 lg:p-20">
         {data.map((item, index) => (
           <Card key={index} sx={{ minWidth: 275, fontFamily: ["Yuji Boku", "serif"].join(",") }}>
             <CardContent>

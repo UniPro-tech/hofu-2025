@@ -17,8 +17,8 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <body className="w-full min-h-screen">
-        <header className="bg-gray-800 text-white w-full">
-          <nav className="hidden lg:flex items-center justify-between p-2 font-yujiboku">
+        <header className="bg-gray-800 text-white w-full min-h-20">
+          <nav className="flex items-center justify-between p-2 font-yujiboku">
             <Link href="https://www.uniproject.jp">
               <h1 className="lg:text-2xl font-bold space-x-4 flex items-center">
                 <Image
