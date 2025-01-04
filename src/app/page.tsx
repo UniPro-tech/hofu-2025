@@ -8,6 +8,7 @@ import CardContent from "@mui/material/CardContent";
 type Item = {
   hofu: string;
   discord: string;
+  description: string;
 };
 
 export default function Home() {
@@ -55,32 +56,35 @@ export default function Home() {
   }
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <div className="flex flex-col space-y-4">
-        <h1 className="text-4xl font-bold text-center">
+    <div className="grid grid-rows-[20px_1fr_20px] items-center font-yujiboku justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <div className="flex flex-col space-y-4 pt-20">
+        <h1 className="text-6xl font-bold text-center">
           新年あけましておめでとうございます！！
         </h1>
-        <p className="text-center text-gray-600">
+        <p className="text-center text-4xl text-gray-600">
           今年の抱負をみんなで共有しましょう！
         </p>
         <Link href="https://forms.gle/qgEPcpScEckdFNvU7" className="block mt-4 text-center text-blue-500">
           Googleフォーム
         </Link>
       </div>
-      <main className="pt-[300px] grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <main className="pt-[100px] grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {data.map((item, index) => (
-          <Card key={index} sx={{ minWidth: 275 }}>
+          <Card key={index} sx={{ minWidth: 275, fontFamily: ["Yuji Boku", "serif"].join(",") }}>
             <CardContent>
               <Typography
                 gutterBottom
-                sx={{ color: "text.secondary", fontSize: 14 }}
+                sx={{ color: "text.secondary", fontSize: 14, fontFamily: ["Yuji Boku", "serif"].join(",") }}
               >
                 今年の抱負は、
               </Typography>
-              <Typography variant="h5" component="div">
+              <Typography variant="h5" component="div" sx={{ fontFamily: ["Yuji Boku", "serif"].join(",") }}>
                 {item.hofu}
               </Typography>
-              <Typography variant="body2">by {item.discord}</Typography>
+              <Typography variant="body1" component="div" sx={{ fontFamily: ["Yuji Boku", "serif"].join(",") }}>
+                {item.description}
+              </Typography>
+              <Typography variant="body2" sx={{ fontFamily: ["Yuji Boku", "serif"].join(",") }}>by {item.discord}</Typography>
             </CardContent>
           </Card>
         ))}

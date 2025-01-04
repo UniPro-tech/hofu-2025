@@ -7,6 +7,9 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      yujiboku: ["Yuji Boku", 'serif'],
+    },
     extend: {
       colors: {
         background: "var(--background)",
