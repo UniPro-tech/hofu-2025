@@ -16,7 +16,7 @@ export default function RootLayout({
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <body className="w-full">
+      <body className="w-full min-h-screen">
         <header className="bg-gray-800 text-white w-full">
           <nav className="hidden lg:flex items-center justify-between p-2">
             <Link href="/">
