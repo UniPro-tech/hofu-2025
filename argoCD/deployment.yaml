@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: registry.uniproject-tech.net/hp-infra/hofu-2025:1.0.0
+          image: registry.uniproject-tech.net/hp-infra/hofu-2025:1.0.1
           ports:
             - containerPort: 3000
           resources:
