@@ -18,8 +18,8 @@ export default function RootLayout({
       </Head>
       <body className="w-full min-h-screen">
         <header className="bg-gray-800 text-white w-full">
-          <nav className="hidden lg:flex items-center justify-between p-2">
-            <Link href="/">
+          <nav className="hidden lg:flex items-center justify-between p-2 font-yujiboku">
+            <Link href="https://www.uniproject.jp">
               <h1 className="lg:text-2xl font-bold space-x-4 flex items-center">
                 <Image
                   src={"/img/UniPro_Logo.webp"}
@@ -30,6 +30,7 @@ export default function RootLayout({
                 <div>
                   今年の抱負は！！
                 </div>
+                <span className="text-sm">Powered by UniProject</span>
               </h1>
             </Link>
           </nav>
@@ -43,9 +44,7 @@ export default function RootLayout({
             className="border-0"
           />
           <div className="mx-auto lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
-            <Link href={"https://github.com/UniPro-tech/UniPro-site/blob/master/LICENSE"} className="text-center hover:text-blue mx-auto">
-              Copyright&copy;2024 UniProject All Rights Reserved. See credits here.
-            </Link>
+            Copyright&copy;2024 Yuito Akatsuki All Rights Reserved.
           </div>
         </footer>
       </body>
