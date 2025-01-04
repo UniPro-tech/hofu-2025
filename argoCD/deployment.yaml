@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: unipro-site
+spec:
+  selector:
+    matchLabels:
+      app: unipro-site
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: unipro-site
+    spec:
+      containers:
+        - name: app
+          image: registry.uniproject-tech.net/hp-infra/hofu-2025:1.0.0
+          ports:
+            - containerPort: 3000
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+      imagePullSecrets:
+        - name: harbor-registry-secret
