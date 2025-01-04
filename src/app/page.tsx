@@ -116,7 +116,7 @@ export default function Home() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center text-black">
         <Typography variant="h6">読み込み中...</Typography>
       </div>
     );
@@ -135,7 +135,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center font-yujiboku">
       <div className="flex flex-col space-y-4 p-[100px]">
-        <h1 className="text-5xl lg:text-6xl font-bold text-center">
+        <h1 className="text-5xl lg:text-6xl font-bold text-center text-black">
           新年あけましておめでとうございます！！
         </h1>
         <p className="text-center text-4xl text-gray-600">
