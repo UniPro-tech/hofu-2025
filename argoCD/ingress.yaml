@@ -11,17 +11,17 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: hofu-2025.uniproject.jp
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: unipro-site
-            port:
-              number: 80
+    - host: hofu-2025.uniproject.jp
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: unipro-site
+                port:
+                  number: 80
   tls:
-  - hosts:
-    - hofu-2025.uniproject.jp
-    secretName: unipro-www-tls
+    - hosts:
+        - hofu-2025.uniproject.jp
+      secretName: unipro-www-tls
