@@ -32,7 +32,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: registry.uniproject.jp/hp-infra/hofu-2025
+          images: registry.uniproject.jp/infra/hofu-2025
           tags: |
             type=raw,value=latest
             type=semver,pattern={{version}}
