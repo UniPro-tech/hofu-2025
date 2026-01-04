@@ -1,12 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  eslint: { // eslintのlint checkをbuild時にoff
-    ignoreDuringBuilds: true,
-  },
-  typescript: { // type checkをbuild時にoff
+  basePath: "/2025",
+  typescript: {
+    // type checkをbuild時にoff
     ignoreBuildErrors: true,
-  }
+  },
 };
 
 export default nextConfig;
