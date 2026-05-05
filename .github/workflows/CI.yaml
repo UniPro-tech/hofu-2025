@@ -14,7 +14,7 @@ on:
       - "*.md"
       - ".vscode/**"
 jobs:
-  eslint:
+  biome:
     runs-on: ubuntu-24.04
     timeout-minutes: 3
     permissions:
@@ -25,20 +25,21 @@ jobs:
         env: [src]
     if: github.event.pull_request.draft == false
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
       - name: Set up Bun
-        uses: oven-sh/setup-bun@v2
+        uses: oven-sh/setup-bun@3d267786b128fe76c2f16a390aa2448b815359f3 # v2
         with:
           bun-version: latest
       - name: Install dependencies
         run: bun install
-      - uses: reviewdog/action-setup@v1
+      - uses: reviewdog/action-setup@d8a7baabd7f3e8544ee4dbde3ee41d0011c3a93f # v1
         with:
           reviewdog_version: latest
       - name: Run reviewdog with eslint
-        uses: reviewdog/action-eslint@v1
+        uses: mongolyy/reviewdog-action-biome@cf9206b36be1b4dbce665866def251ee685a7f71 # v2.8.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           filter_mode: diff_context
           fail_level: error
+          reporter: github-pr-review
           workdir: ${{ matrix.env }}
