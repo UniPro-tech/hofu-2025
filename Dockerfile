@@ -86,4 +86,4 @@ USER 1000
 EXPOSE 3000
 
 # Start Next.js standalone server with Bun
-CMD ["sh", "-c", "bun x prisma migrate deploy && bun server.js"]
+CMD ["sh", "-c", "bun server.js"]
