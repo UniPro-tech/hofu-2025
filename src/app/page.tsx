@@ -1,9 +1,9 @@
-"use client"
-import { useEffect, useState } from "react";
+"use client";
 import { Typography } from "@mui/material";
-import Link from "next/link";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 type Item = {
   hofu: string;
@@ -28,7 +28,6 @@ export default function Home() {
       document.head.appendChild(meta);
     }
 
-    
     // Open Graph メタタグ
     const ogTitle = document.createElement("meta");
     ogTitle.setAttribute("property", "og:title");
@@ -97,15 +96,17 @@ export default function Home() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://script.google.com/macros/s/AKfycbwAGQW3Ax6ilZyDAh3BdXO-EO2LM12fw28njVlG7foie3pqAwE_4XD16Z1hYeFaqagJQw/exec"
+          "https://script.google.com/macros/s/AKfycbwAGQW3Ax6ilZyDAh3BdXO-EO2LM12fw28njVlG7foie3pqAwE_4XD16Z1hYeFaqagJQw/exec",
         );
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const json = await response.json();
         setData(json);
-      } catch (err: any) {
-        setError(err.message || "データの取得中にエラーが発生しました。");
+      } catch (err) {
+        setError(
+          (err as Error).message || "データの取得中にエラーが発生しました。",
+        );
       } finally {
         setLoading(false);
       }
@@ -141,27 +142,50 @@ export default function Home() {
         <p className="text-center text-4xl text-gray-600">
           今年の抱負をみんなで共有しましょう！
         </p>
-        <Link href="https://forms.gle/qgEPcpScEckdFNvU7" className="text-xl text-center text-blue-500">
+        <Link
+          href="https://forms.gle/qgEPcpScEckdFNvU7"
+          className="text-xl text-center text-blue-500"
+        >
           Googleフォーム
         </Link>
       </div>
       <main className="pt-[100px] grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 p-10 lg:p-20">
-        {data.map((item, index) => (
-          <Card key={index} sx={{ minWidth: 275, fontFamily: ["Yuji Boku", "serif"].join(",") }}>
+        {data.map((item) => (
+          <Card
+            key={`${crypto.randomUUID()}`}
+            sx={{ minWidth: 275, fontFamily: ["Yuji Boku", "serif"].join(",") }}
+          >
             <CardContent>
               <Typography
                 gutterBottom
-                sx={{ color: "text.secondary", fontSize: 14, fontFamily: ["Yuji Boku", "serif"].join(",") }}
+                sx={{
+                  color: "text.secondary",
+                  fontSize: 14,
+                  fontFamily: ["Yuji Boku", "serif"].join(","),
+                }}
               >
                 今年の抱負は、
               </Typography>
-              <Typography variant="h5" component="div" sx={{ fontFamily: ["Yuji Boku", "serif"].join(",") }}>
+              <Typography
+                variant="h5"
+                component="div"
+                sx={{ fontFamily: ["Yuji Boku", "serif"].join(",") }}
+              >
                 {item.hofu}
               </Typography>
-              <Typography variant="body1" component="div" sx={{ fontFamily: ["Yuji Boku", "serif"].join(",") }}>
+              <Typography
+                variant="body1"
+                component="div"
+                sx={{ fontFamily: ["Yuji Boku", "serif"].join(",") }}
+              >
                 {item.description}
               </Typography>
-              <Typography variant="body2" sx={{ fontFamily: ["Yuji Boku", "serif"].join(",") }}>by {item.discord}</Typography>
+              <Typography
+                variant="body2"
+                sx={{ fontFamily: ["Yuji Boku", "serif"].join(",") }}
+              >
+                by {item.discord}
+              </Typography>
             </CardContent>
           </Card>
         ))}

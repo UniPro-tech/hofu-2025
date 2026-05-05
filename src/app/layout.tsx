@@ -1,10 +1,7 @@
-import { Inter } from "next/font/google";
 import Image from "next/image";
 import "./globals.css";
 import Head from "next/head";
 import Link from "next/link";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
@@ -27,9 +24,7 @@ export default function RootLayout({
                   width={50}
                   height={50}
                 />
-                <div>
-                  今年の抱負は！！
-                </div>
+                <div>今年の抱負は！！</div>
                 <span className="text-sm">Powered by UniProject</span>
               </h1>
             </Link>
@@ -42,6 +37,7 @@ export default function RootLayout({
             width="230"
             height="61"
             className="border-0"
+            title="Instatus"
           />
           <div className="mx-auto lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
             Copyright&copy;2024 Yuito Akatsuki All Rights Reserved.

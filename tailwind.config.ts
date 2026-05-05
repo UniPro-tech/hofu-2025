@@ -8,7 +8,7 @@ export default {
   ],
   theme: {
     fontFamily: {
-      yujiboku: ["Yuji Boku", 'serif'],
+      yujiboku: ["Yuji Boku", "serif"],
     },
     extend: {
       colors: {
